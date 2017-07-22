@@ -1065,3 +1065,200 @@ class infinitude:
     self.writeJson(jo)
     logging.debug(str(value))
 
+  def get_ue_demandClAbs(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['demandClAbs'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_demandClAbs(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['demandClAbs'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_demandHtAbs(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['demandHtAbs'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_demandHtAbs(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['demandHtAbs'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_demandOffset(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['demandOffset'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_demandOffset(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['demandOffset'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_maxLimit(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['maxLimit'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_maxLimit(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['maxLimit'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_minLimit(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['minLimit'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_minLimit(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['minLimit'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_priceClAbs(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['priceClAbs'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_priceClAbs(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['priceClAbs'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_priceHtAbs(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['priceHtAbs'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_priceHtAbs(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['priceHtAbs'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_priceLimit(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['priceLimit'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_priceLimit(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['priceLimit'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_priceOffset(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['priceOffset'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_priceOffset(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['priceOffset'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_demandResp(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['demandResp'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_demandResp(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['demandResp'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_enabled(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['enabled'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_enabled(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['enabled'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_priceResp(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['priceResp'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_priceResp(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['priceResp'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_ue_restoreDefaults(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['utilityEvent'][0]['restoreDefaults'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_ue_restoreDefaults(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['utilityEvent'][0]['restoreDefaults'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+
+

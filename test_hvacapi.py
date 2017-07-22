@@ -14,9 +14,9 @@ hvac.pullConfig()
 #hvac.get_blight()
 #hvac.set_blight(61)
 #hvac.get_blight()
-hvac.get_ha_humid()
-hvac.set_ha_humid("manual")
-hvac.get_ha_humid()
+hvac.get_ue_demandClAbs()
+hvac.set_ue_demandClAbs(82)
+hvac.get_ue_demandClAbs()
 
 hvac.pushConfig()
 
