@@ -3,6 +3,8 @@ python API to interact with Infinitude
 https://github.com/nebulous/infinitude
 Infinitude is an alternative web service for Carrier Infinity Touch and compatible thermostats.
 
+WARNING: I dont know the expected input to many of the backend settings so I'm not able to guard against them with sanity checks in thge functions. That said always use caution when submitting values as it could do harm. 
+
 # Basic Overview
 This class will have a getter and setter function for each value in the infinitude system configuation file.
 
