@@ -1260,5 +1260,349 @@ class infinitude:
     self.writeJson(jo)
     logging.debug(str(value))
 
+  def get_wh_hold(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['wholeHouse'][0]['hold'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_wh_hold(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['wholeHouse'][0]['hold'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_wh_holdActivity(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['wholeHouse'][0]['holdActivity'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_wh_holdActivity(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['wholeHouse'][0]['holdActivity'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_wh_otmr(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['wholeHouse'][0]['otmr'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_wh_otmr(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['wholeHouse'][0]['otmr'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
+  def get_wh_activities(self,id):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['wholeHouse'][0]['activities'][0]['activity'][id]['blight'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
+  def set_wh_activities(self, id, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['wholeHouse'][0]['activities'][0]['activity'][id]['blight'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_wp_rhtg(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['windowprotect'][0]['rhtg'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_wp_rhtg(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['windowprotect'][0]['rhtg'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_wp_enabled(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['windowprotect'][0]['enabled'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_wp_enabled(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['windowprotect'][0]['enabled'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  def get_wp_ventprotect(self):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['windowprotect'][0]['ventprotect'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  def set_wp_ventprotect(self, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['windowprotect'][0]['ventprotect'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7
+  def get_zone_hold(self,zone):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['hold'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7
+  def set_zone_hold(self, zone, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['hold'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7
+  def get_zone_tempoffset(self,zone):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['tempoffset'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7
+  def set_zone_tempoffset(self, zone, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['tempoffset'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7
+  def get_zone_holdActivity(self,zone):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['holdActivity'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7
+  def set_zone_holdActivity(self, zone, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['holdActivity'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7
+  def get_zone_name(self,zone):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['name'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7
+  def set_zone_name(self, zone, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['name'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7
+  def get_zone_setback(self,zone):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['setback'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7
+  def set_zone_setback(self, zone, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['setback'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7
+  def get_zone_airflowlimit(self,zone):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['airflowlimit'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7
+  def set_zone_airflowlimit(self, zone, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['airflowlimit'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7
+  def get_zone_otmr(self,zone):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['otmr'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7
+  def set_zone_otmr(self, zone, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['otmr'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7
+  def get_zone_enabled(self,zone):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['enabled'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7
+  def set_zone_enabled(self, zone, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['enabled'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7
+  def get_zone_cfmlimit(self, zone):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['cfmlimit'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7
+  def set_zone_cfmlimit(self, zone, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['cfmlimit'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7, id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
+  def get_zone_activity_htsp(self, zone, id):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['activities'][0]['activity'][id]['htsp'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7, id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
+  def set_zone_activity_htsp(self, zone, id, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['activities'][0]['activity'][id]['htsp'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug("zone:"+str(zone)+" id:"+str(id)+" value:"+str(value))
+
+  # zone 0-7, id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
+  def get_zone_activity_clsp(self, zone, id):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['activities'][0]['activity'][id]['clsp'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7, id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
+  def set_zone_activity_clsp(self, zone, id, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['activities'][0]['activity'][id]['clsp'] = [json.dumps(value)]
+    self.writeJson(jo)
+    logging.debug("zone:"+str(zone)+" id:"+str(id)+" value:"+str(value))
+
+  # zone 0-7, id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
+  def get_zone_activity_fan(self, zone, id):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['activities'][0]['activity'][id]['fan'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7, id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
+  def set_zone_activity_fan(self, zone, id, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['activities'][0]['activity'][id]['fan'] = [value]
+    self.writeJson(jo)
+    logging.debug("zone:"+str(zone)+" id:"+str(id)+" value:"+str(value))
+
+  # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
+  def get_zone_program_day_period_enabled(self, zone, day, period):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['enabled'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
+  def set_zone_program_day_period_enabled(self, zone, day, period, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['enabled'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
+
+  # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
+  def get_zone_program_day_period_time(self, zone, day, period):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['time'])
+    fv = jd.replace('["',"").replace('"]','')
+    logging.debug(str(fv))
+    return fv
+
+  # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
+  def set_zone_program_day_period_time(self, zone, day, period, value):
+    c = self.loadJson()
+    jo = json.loads(c)
+    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['time'] = [value]
+    self.writeJson(jo)
+    logging.debug(str(value))
 
 
