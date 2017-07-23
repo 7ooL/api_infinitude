@@ -37,6 +37,12 @@ class infinitude:
     j = f.write(json.dumps(c)) 
     f.close()
 
+  def is_on_or_off(self, i):
+    if i == 'on' or i == 'off':
+      return True
+    logging.error(str(i)+' must be "on" or "off"')
+    return False
+
   def get_blight(self):
     c = self.loadJson()
     jo = json.loads(c)
@@ -61,11 +67,12 @@ class infinitude:
     return fv
 
   def set_cfgauto(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['cfgauto'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['cfgauto'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_cfgchgovr(self):
     c = self.loadJson()
@@ -136,11 +143,12 @@ class infinitude:
     return fv
 
   def set_cfgfan(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['cfgfan'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['cfgfan'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_cfghumid(self):
     c = self.loadJson()
@@ -151,11 +159,12 @@ class infinitude:
     return fv
 
   def set_cfghumid(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['cfghumid'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['cfghumid'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_cfgpgm(self):
     c = self.loadJson()
@@ -166,11 +175,12 @@ class infinitude:
     return fv
 
   def set_cfgpgm(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['cfgpgm'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['cfgpgm'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_cfgrecovery(self):
     c = self.loadJson()
@@ -181,11 +191,12 @@ class infinitude:
     return fv
 
   def set_cfgrecovery(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['cfgrecovery'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['cfgrecovery'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_cfgtype(self):
     c = self.loadJson()
@@ -211,11 +222,12 @@ class infinitude:
     return fv
 
   def set_cfguv(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['cfguv'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['cfguv'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_cfgvent(self):
     c = self.loadJson()
@@ -226,11 +238,12 @@ class infinitude:
     return fv
 
   def set_cfgvent(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['cfgvent'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['cfgvent'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_cfgzoning(self):
     c = self.loadJson()
@@ -241,11 +254,12 @@ class infinitude:
     return fv
 
   def set_cfgzoning(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['cfgzoning'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['cfgzoning'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_ducthour(self):
     c = self.loadJson()
@@ -316,11 +330,12 @@ class infinitude:
     return fv
 
   def set_filtrrmd(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['filtrrmd'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['filtrrmd'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_fueltype(self):
     c = self.loadJson()
@@ -391,11 +406,12 @@ class infinitude:
     return fv
 
   def set_humidityfan(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityfan'] = [json.dumps(value)]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityfan'] = [json.dumps(value)]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_huminterval(self):
     c = self.loadJson()
@@ -436,11 +452,12 @@ class infinitude:
     return fv
 
   def set_humrmd(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humrmd'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humrmd'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_mode(self):
     c = self.loadJson()
@@ -496,11 +513,12 @@ class infinitude:
     return fv
 
   def set_sound(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['sound'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['sound'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_statpressmon(self):
     c = self.loadJson()
@@ -511,11 +529,12 @@ class infinitude:
     return fv
 
   def set_statpressmon(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['statpressmon'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['statpressmon'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_uvinterval(self):
     c = self.loadJson()
@@ -541,11 +560,12 @@ class infinitude:
     return fv
 
   def set_uvrmd(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['uvrmd'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['uvrmd'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_vacat(self):
     c = self.loadJson()
@@ -556,11 +576,12 @@ class infinitude:
     return fv
 
   def set_vacat(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['vacat'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['vacat'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_vacend(self):
     c = self.loadJson()
@@ -586,11 +607,12 @@ class infinitude:
     return fv
 
   def set_vacfan(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['vacfan'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['vacfan'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_vacmaxt(self):
     c = self.loadJson()
@@ -661,11 +683,12 @@ class infinitude:
     return fv
 
   def set_ventrmd(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['ventrmd'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['ventrmd'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_ha_humid(self):
     c = self.loadJson()
@@ -691,11 +714,12 @@ class infinitude:
     return fv
 
   def set_ha_humidifier(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityAway'][0]['humidifier'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityAway'][0]['humidifier'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_ha_rclg(self):
     c = self.loadJson()
@@ -729,11 +753,12 @@ class infinitude:
     return fv
 
   def set_ha_rclgovercool(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityAway'][0]['rclgovercool'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityAway'][0]['rclgovercool'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_ha_ventclg(self):
     c = self.loadJson()
@@ -744,11 +769,12 @@ class infinitude:
     return fv
 
   def set_ha_ventclg(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityAway'][0]['ventclg'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityAway'][0]['ventclg'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_ha_venthtg(self):
     c = self.loadJson()
@@ -759,11 +785,12 @@ class infinitude:
     return fv
 
   def set_ha_venthtg(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityAway'][0]['venthtg'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityAway'][0]['venthtg'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_ha_ventspdclg(self):
     c = self.loadJson()
@@ -819,11 +846,12 @@ class infinitude:
     return fv
 
   def set_hh_humidifier(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityHome'][0]['humidifier'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityHome'][0]['humidifier'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_hh_rclg(self):
     c = self.loadJson()
@@ -864,11 +892,12 @@ class infinitude:
     return fv
 
   def set_hh_rclgovercool(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityHome'][0]['rclgovercool'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityHome'][0]['rclgovercool'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_hh_ventclg(self):
     c = self.loadJson()
@@ -879,11 +908,12 @@ class infinitude:
     return fv
 
   def set_hh_ventclg(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityHome'][0]['ventclg'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityHome'][0]['ventclg'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_hh_venthtg(self):
     c = self.loadJson()
@@ -894,11 +924,12 @@ class infinitude:
     return fv
 
   def set_hh_venthtg(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityHome'][0]['venthtg'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityHome'][0]['venthtg'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_hh_ventspdclg(self):
     c = self.loadJson()
@@ -954,11 +985,12 @@ class infinitude:
     return fv
 
   def set_hv_humidifier(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityVacation'][0]['humidifier'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityVacation'][0]['humidifier'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_hv_rclg(self):
     c = self.loadJson()
@@ -999,11 +1031,12 @@ class infinitude:
     return fv
 
   def set_hv_rclgovercool(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityVacation'][0]['rclgovercool'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityVacation'][0]['rclgovercool'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_hv_ventclg(self):
     c = self.loadJson()
@@ -1014,11 +1047,12 @@ class infinitude:
     return fv
 
   def set_hv_ventclg(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityVacation'][0]['ventclg'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityVacation'][0]['ventclg'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_hv_venthtg(self):
     c = self.loadJson()
@@ -1027,13 +1061,14 @@ class infinitude:
     fv = jd.replace('["',"").replace('"]','')
     logging.debug(str(fv))
     return fv
-	
+
   def set_hv_venthtg(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['humidityVacation'][0]['venthtg'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['humidityVacation'][0]['venthtg'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_hv_ventspdclg(self):
     c = self.loadJson()
@@ -1224,11 +1259,12 @@ class infinitude:
     return fv
 
   def set_ue_enabled(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['utilityEvent'][0]['enabled'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['utilityEvent'][0]['enabled'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_ue_priceResp(self):
     c = self.loadJson()
@@ -1254,11 +1290,12 @@ class infinitude:
     return fv
 
   def set_ue_restoreDefaults(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['utilityEvent'][0]['restoreDefaults'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['utilityEvent'][0]['restoreDefaults'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_wh_hold(self):
     c = self.loadJson()
@@ -1269,11 +1306,12 @@ class infinitude:
     return fv
 
   def set_wh_hold(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['wholeHouse'][0]['hold'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['wholeHouse'][0]['hold'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_wh_holdActivity(self):
     c = self.loadJson()
@@ -1346,11 +1384,12 @@ class infinitude:
     return fv
 
   def set_wp_enabled(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['windowprotect'][0]['enabled'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['windowprotect'][0]['enabled'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   def get_wp_ventprotect(self):
     c = self.loadJson()
@@ -1361,11 +1400,12 @@ class infinitude:
     return fv
 
   def set_wp_ventprotect(self, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['windowprotect'][0]['ventprotect'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['windowprotect'][0]['ventprotect'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   # zone 0-7
   def get_zone_hold(self,zone):
@@ -1378,11 +1418,12 @@ class infinitude:
 
   # zone 0-7
   def set_zone_hold(self, zone, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['hold'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['hold'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   # zone 0-7
   def get_zone_tempoffset(self,zone):
@@ -1446,11 +1487,12 @@ class infinitude:
 
   # zone 0-7
   def set_zone_setback(self, zone, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['setback'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['setback'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   # zone 0-7
   def get_zone_airflowlimit(self,zone):
@@ -1497,11 +1539,12 @@ class infinitude:
 
   # zone 0-7
   def set_zone_enabled(self, zone, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['enabled'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['enabled'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   # zone 0-7
   def get_zone_cfmlimit(self, zone):
@@ -1565,11 +1608,12 @@ class infinitude:
 
   # zone 0-7, id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
   def set_zone_activity_fan(self, zone, id, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['activities'][0]['activity'][id]['fan'] = [value]
-    self.writeJson(jo)
-    logging.debug("zone:"+str(zone)+" id:"+str(id)+" value:"+str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['activities'][0]['activity'][id]['fan'] = [value]
+      self.writeJson(jo)
+      logging.debug("zone:"+str(zone)+" id:"+str(id)+" value:"+str(value))
 
   # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
   def get_zone_program_day_period_enabled(self, zone, day, period):
@@ -1582,11 +1626,12 @@ class infinitude:
 
   # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
   def set_zone_program_day_period_enabled(self, zone, day, period, value):
-    c = self.loadJson()
-    jo = json.loads(c)
-    jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['enabled'] = [value]
-    self.writeJson(jo)
-    logging.debug(str(value))
+    if self.is_on_or_off(value):
+      c = self.loadJson()
+      jo = json.loads(c)
+      jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['enabled'] = [value]
+      self.writeJson(jo)
+      logging.debug(str(value))
 
   # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
   def get_zone_program_day_period_time(self, zone, day, period):
