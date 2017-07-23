@@ -2,9 +2,6 @@ import requests
 import json
 import time
 import logging
-from logging.config import BaseConfigurator
-
-logging.config.fileConfig('../logging.ini')
 
 class infinitude:
 
@@ -51,19 +48,33 @@ class infinitude:
         logging.error(str(i)+' time is wrong format')
         return False
 
+  def __is_valid_activity(self, i):
+    if i == 'home' or i == 'away' or i == 'wake' or i == 'sleep' or i == 'manual':
+      return True
+    logging.error(str(i)+' must be wake, home, sleep, away, or manual')
+    return False
+
   def pullConfig(self):
     api_url='http://'+str(self.ip)+':'+str(self.port)+'/systems.json'
     r = requests.get(api_url)
-    logging.debug(r)
-    with open(self.file, 'w') as f:
-      f.write(r.text)
-    f.close()
+    if r.status_code == requests.codes.ok :
+      with open(self.file, 'w') as f:
+        f.write(r.text)
+      f.close()
+      return True
+    else:
+      logging.error(r)
+      return False
 
   def pushConfig(self):
     api_url='http://'+str(self.ip)+':'+str(self.port)+'/systems/infinitude'
     c = self.loadJson()
     r = requests.post(api_url, data=c)
-    logging.debug(r)
+    if r.status_code == requests.codes.ok :
+      return True
+    else:
+     logging.error(r)
+     return False
 
   def loadJson(self):
     f = open(self.file, 'r')
@@ -1618,6 +1629,18 @@ class infinitude:
       logging.debug(str(value))
 
   # zone 0-7, id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
+  def get_zone_activity_name(self, zone, id):
+    if self.__is_int(zone) and self.__is_in_range(zone,0,7):
+      if self.__is_int(id) and self.__is_in_range(id,0,4):
+        c = self.loadJson()
+        jo = json.loads(c)
+        jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['activities'][0]['activity'][id]['id'])
+        fv = jd.replace('["',"").replace('"]','')
+        fv = jd.replace('"','').replace('"','')
+        logging.debug(str(fv))
+        return fv
+
+  # zone 0-7, id: 0 = home, 1 = away, 2 = sleep, 3 = wake, 4 = manual
   def get_zone_activity_htsp(self, zone, id):
     if self.__is_int(zone) and self.__is_in_range(zone,0,7):
       if self.__is_int(id) and self.__is_in_range(id,0,4):
@@ -1731,4 +1754,26 @@ class infinitude:
             self.writeJson(jo)
             logging.debug(str(value))
 
+  # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
+  def get_zone_program_day_period_activity(self, zone, day, period):
+    if self.__is_int(zone) and self.__is_in_range(zone,0,7):
+      if self.__is_int(day) and self.__is_in_range(day,0,6):
+        if self.__is_int(period) and self.__is_in_range(period,0,4):
+          c = self.loadJson()
+          jo = json.loads(c)
+          jd = json.dumps(jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['activity'])
+          fv = jd.replace('["',"").replace('"]','')
+          logging.debug(str(fv))
+          return fv
 
+  # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
+  def set_zone_program_day_period_activity(self, zone, day, period, value):
+    if self.__is_int(zone) and self.__is_in_range(zone,0,7):
+      if self.__is_int(day) and self.__is_in_range(day,0,6):
+        if self.__is_int(period) and self.__is_in_range(period,0,4):
+          if self.__is_valid_activity(value):
+            c = self.loadJson()
+            jo = json.loads(c)
+            jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['activity'] = [value]
+            self.writeJson(jo)
+            logging.debug(str(value))
