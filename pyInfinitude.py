@@ -1794,7 +1794,7 @@ class infinitude:
   def set_current_profile(self, until, profile):
     if self.__is_valid_activity(profile):
       if self.__is_valid_time(until):
-        api_url='http://'+str(hvacIP)+':'+str(hvacPort)+'/api/1/hold?activity='+profile+'&until="'+until+'"'
+        api_url='http://'+str(self.ip)+':'+str(self.port)+'/api/1/hold?activity='+profile+'&until="'+until+'"'
         r = requests.get(api_url)
         if r.status_code == requests.codes.ok :
           logging.debug('setting '+profile+' until '+until)
