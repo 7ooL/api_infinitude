@@ -1,5 +1,5 @@
 import requests
-import json
+import simplejson as json
 import time
 import logging
 
@@ -1741,7 +1741,7 @@ class infinitude:
             jo = json.loads(c)
             jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['enabled'] = [value]
             self.writeJson(jo)
-            logging.info(str(value))
+            logging.info('period '+str(period)+'one day '+str(day)+'for zone '+str(zone)+'set to '+str(value))
 
   # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
   def get_zone_program_day_period_time(self, zone, day, period):
@@ -1765,7 +1765,7 @@ class infinitude:
             jo = json.loads(c)
             jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['time'] = [value]
             self.writeJson(jo)
-            logging.info(str(value))
+            logging.info('period '+str(period)+'one day '+str(day)+'for zone '+str(zone)+'set to '+str(value))
 
   # zone 0-7, day: 0-6 is Sunday-Saturday, period: 0-4
   def get_zone_program_day_period_activity(self, zone, day, period):
@@ -1789,7 +1789,7 @@ class infinitude:
             jo = json.loads(c)
             jo['system'][0]['config'][0]['zones'][0]['zone'][zone]['program'][0]['day'][day]['period'][period]['activity'] = [value]
             self.writeJson(jo)
-            logging.info(str(value))
+            logging.info('period '+str(period)+'one day '+str(day)+'for zone '+str(zone)+'set to '+str(value))
 
   def set_current_profile(self, until, profile):
     if self.__is_valid_activity(profile):
