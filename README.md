@@ -13,4 +13,17 @@ and
 Publishes to `http:{IP}:{PORT}/systems/infinitude`    
 
 # Purpose
-I'm writing my own home automation program and tieing in the HVAC system is just one part. I wasn't able to do all that i wanted using the current Infinitude API. 
+I'm writing my own home automation program and tieing in the HVAC system is just one part. I wasn't able to do all that i wanted using the current Infinitude API.     
+
+# Example
+Setting away profile for 15 minutes in future    
+```python
+zone=0
+dt = datetime.datetime.now()    
+newHold = dt.replace(minute=0, second=0) + datetime.timedelta(minutes=(dt.minute//15+1)*15)    `
+hvac.pullConfig()     
+hvac.set_zone_holdActivity(zone,'away')    
+hvac.set_zone_otmr(zone,newHold.strftime("%H:%M"))     
+hvac.set_zone_hold(zone,'on')    
+hvac.pushConfig()
+    
