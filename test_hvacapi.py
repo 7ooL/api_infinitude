@@ -1,31 +1,33 @@
 
 import pyInfinitude
 
-ip = '192.168.1.248'
-port = '3000'
-file = 'infinitude.json'
+ip = '192.168.1.20'
+port = '5000'
+jsonFile = 'infinitude.json'
+statusFile = 'status'
 
-hvac = pyInfinitude.infinitude(ip,port,file)
+hvac = pyInfinitude.infinitude(ip,port,jsonFile,statusFile)
 
 # get the current system configuations
 hvac.pullConfig()
 
 # get mode
-#print hvac.get_mode()
-#print hvac.get_zone_program_day_period_activity(0, 0, 0)
+print (hvac.get_mode())
+print (hvac.get_zone_program_day_period_activity(0, 0, 0))
 
 for id in range(0,5):
-  print hvac.get_zone_activity_name(0, id)
+  print (hvac.get_zone_activity_name(0, id))
 
-zone = 0
-for id in range(0,5):
-  profile = hvac.get_zone_activity_name(zone, id)
-  print 'id'+str(id)+', profile:'+profile
 
-for day in range(0,6):
-  for period in range(0,5):
-    if hvac.get_zone_program_day_period_enabled(zone, day, period) == 'on':
-      print 'day'+str(day)+', period:'+str(period)
+#zone = 0
+#for id in range(0,5):
+#  profile = hvac.get_zone_activity_name(zone, id)
+#  print ('id'+str(id)+', profile:'+profile)
+
+#for day in range(0,6):
+#  for period in range(0,5):
+#    if hvac.get_zone_program_day_period_enabled(zone, day, period) == 'on':
+#      print ('day'+str(day)+', period:'+str(period))
 
 
 

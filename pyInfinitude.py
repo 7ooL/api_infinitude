@@ -2,11 +2,6 @@ import requests
 import simplejson as json
 import time
 import logging
-from logging.config import BaseConfigurator
-from logging.config import fileConfig
-
-logging.config.fileConfig('/home/host/home_auto_scripts/logging.ini')
-
 
 class infinitude:
 
