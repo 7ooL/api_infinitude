@@ -9,7 +9,7 @@ statusFile = 'status'
 hvac = pyInfinitude.infinitude(ip,port,jsonFile,statusFile)
 
 # get the current system configuations
-hvac.pullConfig()
+hvac.pull_config()
 
 # get mode
 print (hvac.get_mode())
@@ -67,6 +67,6 @@ for id in range(0,5):
 #hvac.set_zone_program_day_period_time(0, 6, 0, "14:00")
 
 # save the changes made by setters, by pushing new configuation file
-#hvac.pushConfig()
+#hvac.push_config()
 
 
